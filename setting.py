@@ -12,8 +12,12 @@ import demo_workout
 import mealplanner
 import login
 
-client = pymongo.MongoClient(
-    "mongodb+srv://sarthak0714:sarthak0714@cluster0714.9yk64zv.mongodb.net/?retryWrites=true&w=majority")
+from dotenv import load_dotenv
+import os
+load_dotenv()
+URI = os.environ.get("URI")
+# mongo connection
+client = pymongo.MongoClient(URI)
 db = client['PYTHON_MPR']
 col = db["mpr"]
 

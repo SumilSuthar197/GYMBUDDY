@@ -12,8 +12,12 @@ ctk.set_appearance_mode("Light")  # Modes: "System" (standard), "Dark", "Light"
 ctk.set_default_color_theme("dark-blue")  # Themes: "blue" (standard), "green", "dark-blue"
 
 # mongo connection
-client = pymongo.MongoClient(
-    "mongodb+srv://sarthak0714:sarthak0714@cluster0714.9yk64zv.mongodb.net/?retryWrites=true&w=majority")
+from dotenv import load_dotenv
+import os
+load_dotenv()
+URI = os.environ.get("URI")
+# mongo connection
+client = pymongo.MongoClient(URI)
 db = client['PYTHON_MPR']
 col = db["mpr"]
 
